@@ -11,23 +11,42 @@
     <meta name="viewport" content="wirth=device-width"/>
     <title>Introducing form</title>
     <link rel="stylesheet" type="text/css" href="~/Content/Style.css"/>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
-      @using (Html.BeginForm())
-      {
-          @Html.ValidationSummary()
-          <p>My name is @Html.TextBoxFor(x => x.Name)</p>
-          <p>You can send me your filthy letters to @Html.TextBoxFor(x => x.Email)</p>
-          <p>Call me when you're sober on @Html.TextBoxFor(x => x.Phone)</p>
-          <p>Will I attend swamp-party?
-              @Html.DropDownListFor(x => x.WillAttend, new []
-              {
-                  new SelectListItem() { Text = "You're asking?", Value = bool.TrueString },
-                  new SelectListItem() { Text = "Sorry for that...", Value = bool.FalseString }
-              }, "Choose your destiny")</p>
-          <input type="submit" value="Let's go"/>
-      }
+<div class="panel panel-success">
+    <div class="panel-heading"><h4>Introducing form</h4></div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            @Html.ValidationSummary()
+            <div class="form-group">
+                <label>My name is</label>
+                @Html.TextBoxFor(x => x.Name)
+            </div>
+            <div class="form-group">
+                <label>You can send me your filthy letters to</label>
+                @Html.TextBoxFor(x => x.Email)
+            </div>
+            <div class="form-group">
+                <label>Call me when you're sober on</label>
+                @Html.TextBoxFor(x => x.Phone)
+            </div>
+            <div class="form-group">
+                <label>Will I attend swamp-party?</label>
+                @Html.DropDownListFor(x => x.WillAttend, new[]
+                {
+                    new SelectListItem() {Text = "You're asking?", Value = bool.TrueString},
+                    new SelectListItem() {Text = "Sorry for that...", Value = bool.FalseString}
+                }, "Choose your destiny")
+            </div>
+            <div>
+                <input class="btn btn-success" type="submit" value="Let's go"/>
+            </div>
+        }
     </div>
+</div>
+
 </body>
 </html>

@@ -8,15 +8,23 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
     <title>Shrek inc</title>
+    <style>
+            .btn a { color: white; text-decoration: none}
+            body { background-color: #F1F1F1; }
+    </style>
 </head>
 <body>
-    <div>
-      Somebody once told me @ViewBag.NowTime
-      <p>So it's about to start a swamp-party, boy!<br/>
+    <div class="text-center">
+        <h1>Somebody once told me @ViewBag.NowTime</h1>
+      <p><h2>So it's about to start a swamp-party, boy!</h2><br/>
           Don't forget to eat before coming
       </p>
-      @Html.ActionLink("Let me introduce myself", "RsvpForm")
+         <div class="btn btn-success">
+            @Html.ActionLink("Let me introduce myself", "RsvpForm")
+         </div>
     </div>
 </body>
 </html>
