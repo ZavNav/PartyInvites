@@ -1,0 +1,33 @@
+@model PartyInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="wirth=device-width"/>
+    <title>Introducing form</title>
+    <link rel="stylesheet" type="text/css" href="~/Content/Style.css"/>
+</head>
+<body>
+    <div>
+      @using (Html.BeginForm())
+      {
+          @Html.ValidationSummary()
+          <p>My name is @Html.TextBoxFor(x => x.Name)</p>
+          <p>You can send me your filthy letters to @Html.TextBoxFor(x => x.Email)</p>
+          <p>Call me when you're sober on @Html.TextBoxFor(x => x.Phone)</p>
+          <p>Will I attend swamp-party?
+              @Html.DropDownListFor(x => x.WillAttend, new []
+              {
+                  new SelectListItem() { Text = "You're asking?", Value = bool.TrueString },
+                  new SelectListItem() { Text = "Sorry for that...", Value = bool.FalseString }
+              }, "Choose your destiny")</p>
+          <input type="submit" value="Let's go"/>
+      }
+    </div>
+</body>
+</html>
